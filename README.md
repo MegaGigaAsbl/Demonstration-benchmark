@@ -41,15 +41,15 @@ Note that the ```Makefile``` contains Linux commands, but adapting it to a Windo
 
 The following files are created by the ```make``` process:
 
-    File            Size (bytes)    Contents
-    ----            ------------    --------
-    benchmark_a         103952      Compilation of benchmark.pas
-    benchmark_b          22976      Compilation of benchmark.cob
-    benchmark_c          16008      Compilation of benchmark.c
-    benchmark_f          16672      Compilation of benchmark.f90
-    benchmark_p1          1108      Python script
-    benchmark_p2       7812016      Python script packed with pyinstaller
-    benchmark_p3      14410016      Python script compiled with Nuitka and gcc
+    File            Size (bytes)    Contents                                      Command to create binary
+    ----            ------------    --------                                      ------------------------
+    benchmark_a         103952      Compilation of benchmark.pas                  fpc -l- -v0 -O3 -Os -Xs -XX benchmark.pas -obenchmark_a
+    benchmark_b          22976      Compilation of benchmark.cob                  cobc -O3 -x benchmark.cob -o benchmark_b
+    benchmark_c          16008      Compilation of benchmark.c                    gcc -O3 benchmark.c -o benchmark_c
+    benchmark_f          16672      Compilation of benchmark.f90                  gfortran -O3 benchmark.f90 -o benchmark_f
+    benchmark_p1          1108      Python script                                 -
+    benchmark_p2       7812016      Python script packed with pyinstaller         pyinstaller --onefile --optimize=2 benchmark.py
+    benchmark_p3      14410016      Python script compiled with Nuitka and gcc    nuitka --standalone benchmark.py
 
 The size of benchmark_p3 can be made substantially smaller with ```upx --best benchmark_p3```. benchmark_p2 on the other hand seems to experience little positive effects from a pass through ```upx```. The other binaries are small enough that a pass through ```upx``` seems useless.
 
