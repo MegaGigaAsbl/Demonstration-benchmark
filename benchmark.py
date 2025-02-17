@@ -2,7 +2,7 @@
 
 import time
 
-M_SIZE = 500
+M_SIZE = 400
 
 m1 = [[0] * M_SIZE for _ in range(M_SIZE)]
 m2 = [[0] * M_SIZE for _ in range(M_SIZE)]
@@ -14,7 +14,7 @@ start_time = time.time()
 
 result1 = 0
 for i in range(0,100):
-    for j in range(1, 10**7+1):
+    for j in range(1, 1000001):
         result1 += j
 
 end_time = time.time()

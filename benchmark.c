@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#define M_SIZE 500
+#define M_SIZE 400
 
 int main() {
 
@@ -21,7 +21,7 @@ int main() {
 
     result1 = 0;
     for (i = 0; i < 100; i++) {
-        for (j = 1; j < 10000001; j++)
+        for (j = 1; j < 1000001; j++)
             result1 += j;
     }
 

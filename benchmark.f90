@@ -2,7 +2,7 @@ program performance_test
 
     implicit none
 
-    integer(4), parameter :: M_SIZE = 500
+    integer(4), parameter :: M_SIZE = 400
 
     integer(8) :: i, j, k
     real(8)    :: start_time, end_time
@@ -18,7 +18,7 @@ program performance_test
 
     result1 = 0
     do i = 1, 100
-        do j = 1, 10000000
+        do j = 1, 1000000
             result1 = result1 + j
         end do
     end do
@@ -51,7 +51,7 @@ program performance_test
 
     ! -----------------------------------------------------
 
-    print '(A,I16,A,F10.6,A,A,I14,A,F10.6,A)',                      &
+    print '(A,I14,A,F10.6,A,A,I14,A,F10.6,A)',                      &
         'Fortran : Result= ', result1, ', Time= ', time1, ' sec, ', &
                   'Result= ', result2, ', Time= ', time2, ' sec'
 
