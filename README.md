@@ -10,7 +10,7 @@ The C version of the program. This program could be made a little faster when us
 
 #### benchmark.cob
 
-The Cobol version of the program. This program could be made a little faster when using comp variable types.
+The Cobol version of the program. Using comp variables made this program substantially faster.
 
 #### benchmark.f90
 
@@ -24,7 +24,7 @@ The Pascal version of the program.
 
 The Python version of the program. Note that the declaration and initialisation of the matrices is not taken into account when timing the program. It would be a nice exercise to time how long it takes to initialize a large matrix in Python.
 
-Nota that no external modules (as numpy) are used, since most of them are written in an other language than Python for reasons of speed.
+Nota that no external modules (e.g. numpy) are used, since most of them are written in an other language than Python for reasons of speed.
 
 ## Executable files
 
@@ -51,9 +51,11 @@ The following files are created by the ```make``` process:
     benchmark_p2       7812016      Python script packed with pyinstaller
     benchmark_p3      14410016      Python script compiled with Nuitka and gcc
 
+The size of benchmark_p3 can be made substantially smaller with ```upx --best benchmark_p3```. benchmark_p2 on the other hand seems to experience little positive effects from a pass through ```upx```. The other binaries are small enough that a pass through ```upx``` seems useless.
+
 ## Results
 
-The programs do two tests. One test is adding numbers to a long integer (integer in the case of Python). The second test is the initialisation of two matrices, the multiplication of the two and the sum of all their elements.
+The programs do two tests. One test is adding numbers to an integer. The second test is the initialisation of two matrices, the multiplication of the two and the sum of all their elements.
 
 The numerical results of the test are:
 
